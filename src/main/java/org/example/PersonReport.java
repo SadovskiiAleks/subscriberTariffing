@@ -12,9 +12,17 @@ public class PersonReport {
 
     private String[] TimeAndDateOfColl = new String[5];
 
+    // Устнановить тариф
+
     public void addToList(String[] arrayOfString) {
+
+
         list.add(arrayOfString);
+
+        // после каждого добавления элемента провести расчет для каждой минуты по тарифному плану и добавить в строку 6
+
     }
+
 
     @Override
     public String toString() {

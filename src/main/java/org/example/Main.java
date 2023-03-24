@@ -7,7 +7,7 @@ public class Main {
 
         //
         // Считать строки файл
-        new ReaderCDR().readFileToClass("task/cdr.txt", ",")
+        new ReaderCDR().readFileToClass("task/cdr.txt", ", ")
                 .toString();
 
 
