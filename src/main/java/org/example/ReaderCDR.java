@@ -10,7 +10,7 @@ import java.util.Map;
 public class ReaderCDR {
     private BufferedReader br = null;
     private String line = "";
-    private int checkLine = 0;
+
     private HashMap<Long, PersonReport> hashMap = new HashMap<>();
 
     public ReaderCDR readFileToClass(String fileWay, String splitBy) {
@@ -29,13 +29,10 @@ public class ReaderCDR {
 
                 } else {
                     // Нужно создать объект и добавить элемент
-                    PersonReport personReport = new PersonReport(coll.getRate());
+                    PersonReport personReport = new PersonReport(coll.getRate(),coll.getNumber());
                     personReport.addToList(coll);
                     hashMap.put(number, personReport);
                 }
-
-                checkLine++;
-                System.out.println("CheckLine= " + checkLine);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -53,7 +50,9 @@ public class ReaderCDR {
         return this;
     }
 
-
+    public HashMap<Long, PersonReport> getHashMap(){
+        return hashMap;
+    }
 
     @Override
     public String toString() {

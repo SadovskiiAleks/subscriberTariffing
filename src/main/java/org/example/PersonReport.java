@@ -9,10 +9,12 @@ public class PersonReport {
     private LinkedList<Coll> list = new LinkedList();
     private long timeRate;
     private int rate = 0;
+    private long number;
     private double allCost = 0;
 
-    public PersonReport(int rate) {
+    public PersonReport(int rate, long number) {
         this.rate = rate;
+        this.number = number;
         switch (rate) {
             case (06):
                 timeRate = 300*60;
@@ -95,5 +97,21 @@ public class PersonReport {
             c.toString();
         }
         return null;
+    }
+
+    public long getNumber() {
+        return number;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public LinkedList<Coll> getList(){
+        return list;
+    }
+
+    public double getAllCost() {
+        return allCost;
     }
 }
