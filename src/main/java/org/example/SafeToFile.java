@@ -4,10 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Formatter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class SafeToFile {
     private HashMap<Long, PersonReport> hashMap;
@@ -45,17 +42,21 @@ public class SafeToFile {
                             sec = coll.getDifference() / 1 % 60;
                     String duration = String.format("%02d:%02d:%02d", hour, min, sec);
 
-                    bw.write(String.format("| %9d | %-19s | %-19s | %-9s | %-4.2f |%n",
+                    Formatter formatter = new Formatter(Locale.US);
+                    bw.write(String.format("| %9d | %-19s | %-19s | %-9s | %-4s | %n",
                             coll.getInOutColl(),
                             startTime,
                             endTime,
                             duration,
-                            coll.getPriceCall()));
+                            formatter.format("%.2f", coll.getPriceCall())
+                    ));
                 }
+                Formatter formatter = new Formatter(Locale.US);
                 bw.write("----------------------------------------------------------------------------");
                 bw.newLine();
-                bw.write(String.format("|                                           Total Cost: | %9.2f rubles |\n",
-                        personReport.getAllCost()));
+                bw.write(String.format("|                                           Total Cost: | %9s rubles |\n",
+                        formatter.format("%.2f", personReport.getAllCost())
+                        ));
                 bw.write("----------------------------------------------------------------------------");
 
             } catch (Exception e) {

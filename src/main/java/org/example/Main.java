@@ -9,10 +9,5 @@ public class Main {
         ReaderCDR readerCDR = new ReaderCDR().readFileToClass("task/cdr.txt", ", ");
 
         new SafeToFile(readerCDR.getHashMap(),"reports/");
-
     }
-
-
-
-
 }
