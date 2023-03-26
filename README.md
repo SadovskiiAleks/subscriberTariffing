@@ -7,7 +7,7 @@
 
 База данных - файл cdr.txt расположен в папке task.
 
-* [Ссылка на файл](task/cdr.txt)
+* [Ссылка на файл](src/main/resources/task/cdr.txt)
 
 
 
