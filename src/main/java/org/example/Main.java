@@ -8,6 +8,7 @@ public class Main {
         // Считать строки файл
         ReaderCDR readerCDR = new ReaderCDR().readFileToClass("task/cdr.txt", ", ");
 
-        new SafeToFile(readerCDR.getHashMap(),"reports/");
+        //Сохранить отчет
+        new SafeToFile(readerCDR.getHashMap(), "reports/");
     }
 }

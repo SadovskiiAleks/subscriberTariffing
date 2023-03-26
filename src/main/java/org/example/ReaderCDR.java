@@ -18,19 +18,19 @@ public class ReaderCDR {
             br = new BufferedReader(new FileReader(fileWay));
             while ((line = br.readLine()) != null) {
                 String[] arrayFromFile = line.split(splitBy);
-                CollBuilder collBuilder = new CollBuilder(arrayFromFile);
-                Coll coll = collBuilder.build();
+                CallBuilder callBuilder = new CallBuilder(arrayFromFile);
+                Call call = callBuilder.build();
 
-                Long number = coll.getNumber();
+                Long number = call.getNumber();
 
                 if (hashMap.containsKey(number)) {
                     // нужно получить по ключю объект и добавить элемент в массив
-                    hashMap.get(number).addToList(coll);
+                    hashMap.get(number).addToList(call);
 
                 } else {
                     // Нужно создать объект и добавить элемент
-                    PersonReport personReport = new PersonReport(coll.getRate(),coll.getNumber());
-                    personReport.addToList(coll);
+                    PersonReport personReport = new PersonReport(call.getRate(), call.getNumber());
+                    personReport.addToList(call);
                     hashMap.put(number, personReport);
                 }
             }
